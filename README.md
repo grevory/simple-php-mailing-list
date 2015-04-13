@@ -1,8 +1,12 @@
-<?php
+# Simple PHP Mailing List Docs
 
-// Initiate the class
+## Initiate the class
+```php
 $mailingList = new SimpleMailingList();
-// Configure the DB
+```
+
+## Configure the DB
+```php
 $db = array(
 	'host'=>'localhost',
 	'username'=>'me',
@@ -11,19 +15,30 @@ $db = array(
 	'table'=>'subscribers'
 );
 $mailingList->setDbConfig($db);
+```
 
-// Subscribe a new email
+## Subscribe a new email
+```php
 $mailingList->subscribe('me@example.com');
 $mailingList->subscribe('you@example.com');
+```
 
-// Unsubscribe an existing email
+## Unsubscribe an existing email
+```php
 $mailingList->unsubscribe('you@example.com');
+```
 
-// Get a list of subscribers
+## Get a list of subscribers
+```php
 echo implode(', ',$mailingList->getAllSubscribers());
+```
 
-// Get a list of subscribers including those who have opted out
+## Get a list of subscribers including those who have opted out
+```php
 echo implode(', ',$mailingList->getAllSubscribers(true));
+```
 
-// Checl to see if an email is subscribed
+## Check to see if an email is subscribed
+```php
 var_dump($mailingList->emailExists('me@example.com'));
+```
